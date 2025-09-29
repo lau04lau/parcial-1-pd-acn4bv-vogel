@@ -19,80 +19,90 @@
         </nav>
     </header>
 
-    <main class="container">
-        <section class="card">
-            <h1>Cargar Paciente</h1>
+    <main>
+  <div class="container">
+    <section class="card form-card">
+      <h1>Cargar Paciente</h1>
 
-            <form id="formPaciente" autocomplete="off" novalidate>
-                <label for="nombre">Nombre</label>
-                <input id="nombre" name="nombre" type="text" required maxlength="50" />
+      <form id="formPaciente" autocomplete="off" novalidate>
+        <label for="nombre">Nombre</label>
+        <input id="nombre" name="nombre" type="text" required maxlength="50" />
 
-                <label for="apellido">Apellido</label>
-                <input id="apellido" name="apellido" type="text" required maxlength="50" />
+        <label for="apellido">Apellido</label>
+        <input id="apellido" name="apellido" type="text" required maxlength="50" />
 
-                <label for="dni">DNI</label>
-                <input id="dni" name="dni" type="text" inputmode="numeric" pattern="\\d{7,8}"
-                    placeholder="7 u 8 dígitos" required />
+        <label for="dni">DNI</label>
+        <input id="dni" name="dni" type="text" inputmode="numeric" pattern="\\d{7,8}" placeholder="7 u 8 dígitos" required />
 
-                <label for="telefono">Teléfono</label>
-                <input id="telefono" name="telefono" type="tel" inputmode="tel" placeholder="11 1234-5678" required />
+        <label for="telefono">Teléfono</label>
+        <input id="telefono" name="telefono" type="tel" inputmode="tel" placeholder="11 1234-5678" required />
 
-                <label for="fechaNac">Fecha de Nacimiento</label>
-                <input id="fechaNac" name="fechaNac" type="date" required />
+        <label for="fechaNac">Fecha de Nacimiento</label>
+        <input id="fechaNac" name="fechaNac" type="date" required />
 
-                <label for="nivelEducativo">Nivel Educativo</label>
-                <select id="nivelEducativo" name="nivelEducativo" required>
-                    <option value="" selected disabled>Seleccionar…</option>
-                    <option value="Inicial">Inicial</option>
-                    <option value="Primario">Primario</option>
-                    <option value="Secundario">Secundario</option>
-                    <option value="Terciario">Terciario</option>
-                    <option value="Universitario">Universitario</option>
-                </select>
+        <label for="nivelEducativo">Nivel Educativo</label>
+        <select id="nivelEducativo" name="nivelEducativo" required>
+          <option value="" selected disabled>Seleccionar…</option>
+          <option value="Inicial">Inicial</option>
+          <option value="Primario">Primario</option>
+          <option value="Secundario">Secundario</option>
+          <option value="Terciario">Terciario</option>
+          <option value="Universitario">Universitario</option>
+        </select>
 
-                <label for="gradoCurso">Grado/Curso</label>
-                <input id="gradoCurso" name="gradoCurso" type="number" min="1" max="7" step="1" placeholder="1 a 7"
-                    required />
+        <label for="gradoCurso">Grado/Curso</label>
+        <input id="gradoCurso" name="gradoCurso" type="number" min="1" max="7" step="1" placeholder="1 a 7" required />
 
-                <label for="genero">Género</label>
-                <select id="genero" name="genero" required>
-                    <option value="" selected disabled>Seleccionar…</option>
-                    <option value="Femenino">Femenino</option>
-                    <option value="Masculino">Masculino</option>
-                    <option value="Prefiere no decir">Prefiere no decir</option>
-                </select>
-                <label for="motivoConsulta">Motivo de consulta</label>
-                <textarea id="motivoConsulta" name="motivoConsulta" rows="2" maxlength="500" required></textarea>
+        <label for="genero">Género</label>
+        <select id="genero" name="genero" required>
+          <option value="" selected disabled>Seleccionar…</option>
+          <option value="Femenino">Femenino</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Prefiere no decir">Prefiere no decir</option>
+        </select>
 
-                <div class="actions">
-                    <button id="btnCargar" type="submit" class="btn-primary">Cargar</button>
-                </div>
-                <p id="msg" class="msg" aria-live="polite"></p>
-            </form>
+        <label for="motivoConsulta">Motivo de consulta</label>
+        <textarea id="motivoConsulta" name="motivoConsulta" rows="2" maxlength="500" required></textarea>
 
-            <div id="listadoWrap">
-                <h2 class="list-title" id="tituloTabla" hidden>Pacientes cargados</h2>
-                <table id="tablaPacientes" hidden>
-                    <thead>
-                        <tr>
-                            <th>Apellido, Nombre</th>
-                            <th>DNI</th>
-                            <th>Teléfono</th>
-                            <th>Fecha Nac.</th>
-                            <th>Grado</th>
-                            <th>Nivel Educativo</th>
-                            <th>Género</th>
-                            <th>Acciones</th> 
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
+        <div class="actions">
+          <button id="btnCargar" type="submit" class="btn-primary">Cargar</button>
+        </div>
+        <p id="msg" class="msg" aria-live="polite"></p>
+      </form>
+    </section>
+  </div>
 
-            </div>
-        </section>
-      
+  <section class="card table-card">
+    <h2 class="list-title" id="tituloTabla" hidden>Pacientes cargados</h2>
 
-    </main>
+    <table id="tablaPacientes" hidden>
+      <colgroup>
+        <col style="width:20%">
+        <col style="width:14%">
+        <col style="width:16%">
+        <col style="width:14%">
+        <col style="width:3%">
+        <col style="width:14%">
+        <col style="width:10%">
+        <col style="width:9%">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Apellido, Nombre</th>
+          <th>DNI</th>
+          <th>Teléfono</th>
+          <th>Fecha Nac.</th>
+          <th>Grado</th>
+          <th>Nivel Educativo</th>
+          <th>Género</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+</main>
+
 
     <script src="../js/cargarPaciente.js" defer></script>
 </body>
